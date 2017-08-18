@@ -1,6 +1,6 @@
 # How to Wait for set of asynchronous callback functions?
 
-My idea is to emulate too many calls to APIs and do a job when they ALL respond.
+My idea is to emulate too many calls to APIs and do a job when ALL of them respond.
 
 ```javascript
 function getRandomTimoutValue(){
