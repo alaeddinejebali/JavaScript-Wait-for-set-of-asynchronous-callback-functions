@@ -1,4 +1,4 @@
-# How to Wait for set of asynchronous callback functions?
+# How to wait for set of asynchronous callback functions?
 
 My idea is to emulate too many calls to APIs and do a job when ALL of them respond.
 
