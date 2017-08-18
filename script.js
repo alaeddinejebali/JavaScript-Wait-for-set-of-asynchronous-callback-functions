@@ -2,7 +2,7 @@ function getRandomTimoutValue(){
 	return Math.floor(Math.random() * 5000)
 }
 
-function appelerAPI_A(){
+function callApi_A(){
 	return new Promise(function(resolve, reject) {
 		var timeout = getRandomTimoutValue();
 		setTimeout(function(){
@@ -11,7 +11,7 @@ function appelerAPI_A(){
 		}, timeout);
 	});
 }
-function appelerAPI_B(){
+function callApi_B(){
 	return new Promise(function(resolve, reject) {
 		var timeout = getRandomTimoutValue();
 		setTimeout(function(){
@@ -20,7 +20,7 @@ function appelerAPI_B(){
 		}, timeout);
 	});
 }
-function appelerAPI_C(){
+function callApi_C(){
 	return new Promise(function(resolve, reject) {
 		var timeout = getRandomTimoutValue();
 		setTimeout(function(){
@@ -31,20 +31,19 @@ function appelerAPI_C(){
 }
 
 
-function doJob(){
-	appelerAPI_A();
-	appelerAPI_B();
-	appelerAPI_C();
+function doJob(result){
+	console.log("Doing my job...");
+	console.log("result:", result);
 }
 
 var promises = [];
-promises.push(appelerAPI_A());
-promises.push(appelerAPI_B());
-promises.push(appelerAPI_C());
-
+promises.push(callApi_A());
+promises.push(callApi_B());
+promises.push(callApi_C());
 
 Promise.all(promises).then(function AcceptHandler(result) {
-	console.log("======>result.ok:", result);
+	console.log("All API have respond.");
+	doJob(result);
 }, function(err) {
-	console.log("======>result.error:", err);
+	console.log("At least one API encountered an error: ", err);
 });
